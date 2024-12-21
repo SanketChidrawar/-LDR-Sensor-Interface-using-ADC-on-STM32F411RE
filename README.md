@@ -9,7 +9,7 @@ This project demonstrates interfacing an **LDR (Light Dependent Resistor)** sens
 - Real-time ambient light measurement using an LDR sensor.
 - Precise ADC configuration for 12-bit resolution.
 - Display of processed data via a serial terminal.
-- Implementation of STM32 HAL drivers for efficient embedded development.
+- LED **LD2** (at pin **PA5**) control based on ambient light intensity.
 
 ---
 
@@ -26,6 +26,7 @@ This project demonstrates interfacing an **LDR (Light Dependent Resistor)** sens
 - Connect one terminal of the LDR to **VCC (3.3V)**.
 - Connect the other terminal to **PA0 (ADC Pin)** and to a **10 kΩ pull-down resistor** tied to GND.
 - The variable voltage from the divider is fed into the ADC pin.
+- Connect LED **LD2** to **PA5**, which toggles based on the ambient light intensity.
 
 ---
 
@@ -41,7 +42,8 @@ This project demonstrates interfacing an **LDR (Light Dependent Resistor)** sens
 ## How It Works
 1. The LDR’s resistance changes with light intensity, altering the voltage in the divider circuit.
 2. The STM32F411RE’s ADC reads this voltage and converts it into a digital value.
-3. The digital value is processed and displayed on a serial terminal.
+3. LED **LD2** (at pin **PA5**) is turned ON when the lux value is greater than **2000** and OFF when the lux value is less than **2000**.
+4. The digital value is processed and displayed on a serial terminal.
 
 ---
 
